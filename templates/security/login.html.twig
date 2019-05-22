@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<style>
+    html, body {margin:0;font: 18px/1.5 'Montserrat', sans-serif;}
+
+    .main-wrapper {padding:240px 160px;display:grid;grid-template-columns:1fr 1fr;grid-column-gap:80px;background-image: linear-gradient(to right, red , blue);}
+
+    .desc {color:white;box-sizing:border-box;}
+
+    .card-wrapper {background:white;border-bottom:6px solid lightgrey;padding:40px;border-radius:4px;}
+
+    .card-wrapper p {margin-bottom:80px;}
+
+    .log {text-decoration:none;padding:12px 20px;border-radius:4px;background:blue;color:white;border:2px solid blue;transition:background 0.2s, border 0.2s;}
+
+    .log:hover {background:darkblue;border:2px solid darkblue;}
+
+    .create {text-decoration:none;padding:12px 20px;border-radius:4px;border:2px solid #262626;color:#262626;transition:background 0.2s;}
+
+    .create:hover {color:white;background:#262626;}
+
+    .footer {background:#262626;padding:40px;text-align:center;color:white;}
+</style>
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="main-wrapper">
+    <div class="desc">
+        <h1>Pokémon Trainer</h1>
+        <p>Become a Pokémon trainer, and explore the world !</p>
+        <p>Capture Pokémons, train them and make them fight to become the very best !</p>
+    </div>
+
+    <div class="card-wrapper">
+        <h3>Please log in</h3>
+        <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+</form>
+    </div>
+    </div>
+
+    <div class="footer">Joseph Lloyd 2019 © All rights reserved</div>    
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    
+{% endblock %}

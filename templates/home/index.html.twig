@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello, Trainer!{% endblock %}
+{% block head %}
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+{% endblock %}
+{% block body %}
+<style>
+    html, body {margin:0;font: 18px/1.5 'Montserrat', sans-serif;}
+
+    .main-wrapper {padding:240px 160px;display:grid;grid-template-columns:1fr 1fr;grid-column-gap:80px;background-image: linear-gradient(to right, red , blue);}
+
+    .desc {color:white;box-sizing:border-box;}
+
+    .card-wrapper {background:white;border-bottom:6px solid lightgrey;padding:40px;border-radius:4px;}
+
+    .card-wrapper p {margin-bottom:80px;}
+
+    .log {text-decoration:none;padding:12px 20px;border-radius:4px;background:blue;color:white;border:2px solid blue;transition:background 0.2s, border 0.2s;}
+
+    .log:hover {background:darkblue;border:2px solid darkblue;}
+
+    .create {text-decoration:none;padding:12px 20px;border-radius:4px;border:2px solid #262626;color:#262626;transition:background 0.2s;}
+
+    .create:hover {color:white;background:#262626;}
+
+    .footer {background:#262626;padding:40px;text-align:center;color:white;}
+</style>
+
+<div class="main-wrapper">
+<div class="desc">
+    <h1>Pokémon Trainer</h1>
+    <p>Become a Pokémon trainer, and explore the world !</p>
+    <p>Capture Pokémons, train them and make them fight to become the very best !</p>
+</div>
+
+<div class="card-wrapper">
+    <h3>Hello, Trainer!</h3>
+    <p>Log in with your Trainer account, or create one if you haven't already.</p>
+    <a href="{{ path('app_login') }}" class="log">Login<i class="fas fa-sign-in-alt"></i></a>
+    <a href="" class="create">Register</a>
+</div>
+</div>
+
+<div class="footer">Joseph Lloyd 2019 © All rights reserved</div>
+
+
+
+
+{% endblock %}
